@@ -52,22 +52,53 @@ public class App {
 
     //todo Task 3
     public void printPyramid(){
-        final int ROWS = 6;
-        final int COLS = 11;
+    int rows = 6;
+        for (int i = 0 ; i<=rows-1; i++) {
 
-
-        // input your solution here
+            for (int j = 2 ;   j <= rows - i    ;   j++) {
+                System.out.print(" ");
+            }
+             for (int k=1    ;   k<=2*i+1    ;    k++) {
+                 System.out.print("*");
+             }
+            System.out.println();
+        }
     }
 
     //todo Task 4
-    public void printRhombus(){
+    public void printRhombus() {
+
         // input your solution here
     }
-
     //todo Task 5
     public void marks(){
+            Scanner scanner = new Scanner(System.in);
+            int n = 1;
+            int sum = 0;
+            int count;
+            int marks = 0;
+            count = 1;
+
+            while (n>0) {
+
+                System.out.print("Mark "+count + ": ");
+                n = scanner.nextInt();
+                if (n == 5) {
+                    marks++;
+                }
+
+                if (n > 5) {
+                    System.out.println("Invalid mark!");
+                } else {
+                    sum = n;
+                    count++;}
+
+            }
+            count = count -1;
+            System.out.println("Average: " + (double)(sum/count));
+
+        }
         // input your solution here
-    }
 
     //todo Task 6
     public void happyNumbers(){
