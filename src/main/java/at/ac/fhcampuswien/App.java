@@ -1,6 +1,5 @@
 package at.ac.fhcampuswien;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class App {
@@ -70,7 +69,7 @@ public class App {
     }
 
     //todo Task 4
-    public void printRhombus() throws IOException {
+    public void printRhombus() {
         Scanner scanner = new Scanner(System.in);
         int h;
         System.out.print("h: ");
@@ -169,7 +168,7 @@ public class App {
         // input your solution here
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         App exercise2 = new App();
 
         System.out.println("Task 1: Largest Number");
