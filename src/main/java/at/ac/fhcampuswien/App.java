@@ -1,5 +1,6 @@
 package at.ac.fhcampuswien;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class App {
@@ -40,6 +41,9 @@ public class App {
             int n = scanner.nextInt();
             int count  =1;
 
+            if (n<=0){
+                System.out.println("Invalid number!");
+            }
             for (int i=1; i <= n ; i ++){
                 for (int j = 1; j<=i;j++){
                     System.out.print(count+" ");
@@ -66,38 +70,98 @@ public class App {
     }
 
     //todo Task 4
-    public void printRhombus() {
+    public void printRhombus() throws IOException {
+        Scanner scanner = new Scanner(System.in);
+        int h;
+        System.out.print("h: ");
+        h = scanner.nextInt();
+        System.out.print("c: ");
+        char c = scanner.next().charAt(0);
 
+        if (h % 2 != 0) {
+
+            for (int r = h/2; r>=0; r--) {
+
+                for (int a = r; a>0; a--) {
+                    System.out.print(" ");
+                }
+                for (int b=r ; b <=h/2 ; b ++){
+                    System.out.print((char) (c + (-h/2) + b));
+                }
+                for (int f =h/2+1; f <h-r; f++){
+                    System.out.print((char) (c  + (h/2)-f));
+                }
+
+                System.out.println();
+            }
+// Pyramide bis einschließlich Reihe 0
+            for (int r = 1; r<=h/2; r++) {
+                for (int a = r; a>0; a--) {
+                    System.out.print(" ");
+                }
+                for (int b=r ; b <=h/2 ; b ++){
+                    System.out.print((char) (c + (-h/2) + b));
+                }
+
+                for (int f =h/2+1; f <h-r; f++){
+                    System.out.print((char) (c + (h/2)-f));
+                }
+
+                System.out.println();
+            }
+//Pyramide von Reihe /2 bis Ende
+            } else{
+                System.out.println("Invalid number!");
+            }
+        }
         // input your solution here
-    }
     //todo Task 5
-    public void marks(){
-            Scanner scanner = new Scanner(System.in);
-            int n = 1;
-            int sum = 0;
-            int count;
-            int marks = 0;
-            count = 1;
+    public void marks() {
+        Scanner scanner = new Scanner(System.in);
+        int n;
+        int sum = 0;
+        int count;
+        int marks = 0;
+        count = 1;
 
-            while (n>0) {
+        System.out.print("Mark " + count + ": ");
+        n = scanner.nextInt();
 
-                System.out.print("Mark "+count + ": ");
-                n = scanner.nextInt();
+        if (n>0) {
+            while (n != 0) {
+                count++;
+
+                if (n < 5) {
+                    sum = sum + n;
+                }
+
                 if (n == 5) {
                     marks++;
+                    sum = sum + n;
                 }
 
                 if (n > 5) {
                     System.out.println("Invalid mark!");
-                } else {
-                    sum = n;
-                    count++;}
+                    count--;
+                }
 
+                System.out.print("Mark " + count + ": ");
+                n = scanner.nextInt();
             }
-            count = count -1;
-            System.out.println("Average: " + (double)(sum/count));
-
+            count--;
+            double average = (double) sum / count;
+            System.out.print("Average: ");
+            System.out.printf("%.2f", average);
+            System.out.println();
+            System.out.println("Negative marks: " + marks);
+        } else {
+            count = 0;
+            double average = (double) sum / count;
+            System.out.print("Average: 0.00");
+            System.out.println();
+            System.out.println("Negative marks: 0");
         }
+    }
         // input your solution here
 
     //todo Task 6
@@ -105,7 +169,7 @@ public class App {
         // input your solution here
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException {
         App exercise2 = new App();
 
         System.out.println("Task 1: Largest Number");
