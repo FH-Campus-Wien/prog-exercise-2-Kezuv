@@ -165,6 +165,39 @@ public class App {
 
     //todo Task 6
     public void happyNumbers(){
+        Scanner scanner = new Scanner(System.in);
+
+        int zahl;
+        int singelzahl = 1;
+        int summe = 0;
+        System.out.print("n: ");
+        zahl  = scanner.nextInt();
+
+
+        while (zahl > 9)
+        {
+
+            while (zahl > 0)
+            {
+                singelzahl = zahl % 10;
+                summe = summe + (singelzahl * singelzahl);
+                zahl = zahl / 10;
+            }
+
+            zahl = summe;
+            summe = 0;
+        }
+
+
+
+        if (zahl == 1)
+        {
+            System.out.println("Happy number!");
+        }
+        else
+        {
+            System.out.println("Sad number!");
+        }
         // input your solution here
     }
 
